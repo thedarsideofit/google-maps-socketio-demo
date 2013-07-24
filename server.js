@@ -1,6 +1,6 @@
 "use strict";
 
-var app = require('http').createServer(handler)
+var app = require('http').createServer(handler).listen(8888)
   , io = require('socket.io').listen(app)
   , fs = require('fs');
 

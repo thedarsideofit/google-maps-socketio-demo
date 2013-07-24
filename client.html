@@ -41,9 +41,9 @@
                 var g = new google.maps.Geocoder();
                 
                 g.geocode({ address: address }, function (res) {
-                    if (!res || !res.length) return;
-                    
+                    if (!res || !res.length) return;                    
                     var latlng = (res[0].geometry.location);
+                    console.log(latlng);
                     callback(latlng);
                 });
             }
@@ -84,11 +84,12 @@
              * Emit a LatLng to the server
              */
             function sendPointToServer(description, latlng) {
+                console.log(latlng);
                 socket.emit("point", JSON.stringify({
                     desc: description,
                     latlng: {
-                        lat: latlng.$a,
-                        lng: latlng.ab
+                        lat: latlng.jb,
+                        lng: latlng.kb
                     }
                 }));
             }
